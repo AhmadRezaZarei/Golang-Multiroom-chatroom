@@ -13,7 +13,7 @@ install gorilla web socket , run this code <code>go get github.com/gorilla/webso
 run this code in shell <code>go run main.go client.go hubgroup.go hub.go</code>
 </li>
 <li>
-now server its working 
+now server is working 
 </li>
 <li>
 type "localhost:8080" in your browser
