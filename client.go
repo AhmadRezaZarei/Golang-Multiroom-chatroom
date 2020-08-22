@@ -6,7 +6,6 @@ package main
 
 import (
 	"bytes"
-	"fmt"
 	"github.com/gorilla/websocket"
 	"log"
 	"net/http"
@@ -36,6 +35,7 @@ var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 }
+
 
 
 
@@ -123,12 +123,15 @@ func (c *Client) writePump() {
 }
 
 func serveUpgradedWs( w http.ResponseWriter, r *http.Request) {
+
+
+
 	upgrader.CheckOrigin = func(r *http.Request) bool {
 		return  true
 	}
+
 	conn, err := upgrader.Upgrade(w, r, nil)
 	hubName := r.FormValue("hub_name")
-	fmt.Println("hub_name, " , hubName)
 	if err != nil {
 		log.Println(err)
 		return
